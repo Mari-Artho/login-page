@@ -1,3 +1,4 @@
+//click button, login
 const button = document.getElementsByTagName("button")[0];
 button.addEventListener("click", login());
 
@@ -7,21 +8,19 @@ function login() {
   const loginSuccess = document.getElementById("loginSuccess");
   const loginFail = document.getElementById("loginFail");
   if (username == "janne" && password == "test") {
-    loginSuccess.textContent = "Welcome!! Your name is" + username;
-    console.log("ログインできました");
+    loginSuccess.textContent = `Welcome ${username} !!  ${username} are login now!! `;
   } else {
     loginFail.textContent = "Login fail, please try again.";
-    console.log("ログインできませんでした");
   }
 }
 
-//test
-button.addEventListener("click", onClickBtn());
+//clear button
+const btnClear = document.querySelector("button")[0];
+const inputs = document.querySelectorAll("input");
 
-function onClickBtn() {
-  console.log("ボタンがクリックされました。");
-  console.log(username.value);
-}
+btnClear.addEventListener("click", () => {
+  inputs.forEach((input) => (input.value = ""));
+});
 
 //Save to local storage
 localStorage.setItem("username", username.value);
