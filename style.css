@@ -1,5 +1,10 @@
 header {
   height: 100px;
+  background-color: lightgoldenrodyellow;
+}
+
+form {
+  background-color: lightsalmon;
 }
 
 footer {
