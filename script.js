@@ -1,27 +1,29 @@
 //click button, login
-const button = document.getElementsByTagName("button")[0];
-button.addEventListener("click", login());
+const btnSubmit = document.getElementById("btnSubmit");
+btnSubmit.addEventListener("click", login);
 
 function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  const loginSuccess = document.getElementById("loginSuccess");
-  const loginFail = document.getElementById("loginFail");
+  const loginResult = document.getElementById("loginResult");
+
   if (username == "janne" && password == "test") {
-    loginSuccess.textContent = `Welcome ${username} !!  ${username} are login now!! `;
+    let upperName = username.toUpperCase();
+    loginResult.textContent = `Welcome ${upperName}! ${upperName} is logged in now! `;
   } else {
-    loginFail.textContent = "Login fail, please try again.";
+    loginResult.textContent = "Login failed, please try again.";
   }
 }
 
 //clear button
-const btnClear = document.querySelector("button")[0];
+const btnClear = document.getElementById("btnClear");
 const inputs = document.querySelectorAll("input");
 
 btnClear.addEventListener("click", () => {
   inputs.forEach((input) => (input.value = ""));
 });
 
-//Save to local storage
-localStorage.setItem("username", username.value);
-localStorage.setItem("password", password.value);
+function saveToStorage(username, password) {
+  //Save to local storage
+  localStorage.setItem(username, password);
+}
