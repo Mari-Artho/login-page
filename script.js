@@ -1,6 +1,11 @@
 //click button, login
+const message = document.getElementById("message");
+
 const btnSubmit = document.getElementById("btnSubmit");
 btnSubmit.addEventListener("click", login);
+//register handler "newUser" for "newUser" button
+const btnNewUser = document.getElementById("newUser");
+btnNewUser.addEventListener("click", newUser);
 
 function login() {
   const username = document.getElementById("username").value;
@@ -14,7 +19,7 @@ function login() {
     (pwd != null && pwd == password)
   ) {
     let upperName = username.toUpperCase();
-    loginResult.textContent = `Welcome ${upperName}! ${upperName} is logged in now! `;
+    loginResult.textContent = `Welcome ${upperName}! You are logged in now! `;
   } else {
     loginResult.textContent = "Login failed, please try again.";
   }
@@ -28,7 +33,26 @@ btnClear.addEventListener("click", () => {
   inputs.forEach((input) => (input.value = ""));
 });
 
-function saveToStorage(username, password) {
-  //Save to local storage
+// change "LOGIN" to "REGISTER NEW USER"
+function newUser() {
+  // change h2 text to "register..."
+  message.innerText = "Register New User";
+  // change btnSubmit handler to addUser
+
+  // remove "New User" button
+  // change text "LOGIN" to "REGISTER"
+}
+
+//Register new user
+function addUser() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
   localStorage.setItem(username, password);
+  // display message
+  // change h2 text back to login
+
+  // change btnSubmit handler back to login
+
+  // add "New User" button back
+  // change text "REGISTER" back to "LOGIN"
 }
