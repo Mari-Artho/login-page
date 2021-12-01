@@ -7,7 +7,12 @@ function login() {
   const password = document.getElementById("password").value;
   const loginResult = document.getElementById("loginResult");
 
-  if (username == "janne" && password == "test") {
+  const pwd = localStorage.getItem(username);
+
+  if (
+    (username == "janne" && password == "test") ||
+    (pwd != null && pwd == password)
+  ) {
     let upperName = username.toUpperCase();
     loginResult.textContent = `Welcome ${upperName}! ${upperName} is logged in now! `;
   } else {
