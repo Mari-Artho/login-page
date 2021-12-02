@@ -38,7 +38,7 @@ function login() {
 
     //decoration css
     document.querySelector("header").style.height = "450px";
-    document.querySelector("button").style.marginTop = "100px";
+    logoutBtn.style.marginTop = "100px";
   } else {
     loginResult.textContent = "Login failed, please try again.";
   }
@@ -52,6 +52,8 @@ function login() {
     document.querySelector("header").style.height = "150px";
     document.querySelector("section").style.display = "block";
     document.querySelector("section").style.height = "300px";
+    //hide logout button.
+    document.getElementById("logout").style.display = "none";
   }
 }
 
