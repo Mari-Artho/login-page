@@ -31,7 +31,7 @@ function login() {
     //hide section(login) area.
     const removeSelector = document.querySelector("section");
     removeSelector.remove();
-    //deco css
+    //decoration css
     document.querySelector("header").style.height = "450px";
     document.querySelector("button").style.marginTop = "100px";
   } else {
