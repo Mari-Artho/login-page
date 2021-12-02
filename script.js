@@ -38,7 +38,7 @@ function login() {
 
     //decoration css
     document.querySelector("header").style.height = "450px";
-    logoutBtn.style.marginTop = "100px";
+    logoutBtn.style.marginTop = "70px";
   } else {
     loginResult.textContent = "Login failed, please try again.";
   }
@@ -48,12 +48,12 @@ function login() {
   btnLogout.addEventListener("click", logout);
 
   function logout() {
-    console.log("You are logout");
     document.querySelector("header").style.height = "150px";
     document.querySelector("section").style.display = "block";
     document.querySelector("section").style.height = "300px";
     //hide logout button.
     document.getElementById("logout").style.display = "none";
+    loginResult.textContent = "You are logged out. Please login.";
   }
 }
 
