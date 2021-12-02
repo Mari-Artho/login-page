@@ -1,14 +1,17 @@
-/// read "loggedInUser" from localStorage
-// if not null, call setLoggedInScreen()
+// check existing session
+const username = localStorage.getItem("loggedInUser");
+if (username != null) {
+  setLoggedInScreen(username);
+} else {
+  //click button, login
+  const message = document.getElementById("message");
 
-//click button, login
-const message = document.getElementById("message");
-
-const btnSubmit = document.getElementById("btnSubmit");
-btnSubmit.addEventListener("click", login);
-//register handler "newUser" for "newUser" button
-const btnNewUser = document.getElementById("newUser");
-btnNewUser.addEventListener("click", newUser);
+  const btnSubmit = document.getElementById("btnSubmit");
+  btnSubmit.addEventListener("click", login);
+  //register handler "newUser" for "newUser" button
+  const btnNewUser = document.getElementById("newUser");
+  btnNewUser.addEventListener("click", newUser);
+}
 
 function setLoggedInScreen(username) {
   // remember session
@@ -105,6 +108,7 @@ function newUser() {
 function addUser() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+
   if (localStorage.getItem(username) != null) {
     loginResult.innerText = "Sorry, this user is already registered";
     /// change loginResult to "Registration failed"
