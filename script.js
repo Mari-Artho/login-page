@@ -24,18 +24,34 @@ function login() {
     const logoutBtn = document.createElement("button");
     logoutBtn.innerText = "LOGOUT";
     loginResult.append(logoutBtn);
+    //add id name to logout btn.
+    logoutBtn.setAttribute("id", "logout");
+
     //hide login message and display colmun
     document.getElementById("unLogin").style.display = "none";
     document.getElementById("loginResult").style.display = "flex";
     document.getElementById("loginResult").style.flexDirection = "column";
     //hide section(login) area.
-    const removeSelector = document.querySelector("section");
-    removeSelector.remove();
+    //const removeSelector = document.querySelector("section");
+    //removeSelector.remove();
+    document.querySelector("section").style.display = "none";
+
     //decoration css
     document.querySelector("header").style.height = "450px";
     document.querySelector("button").style.marginTop = "100px";
   } else {
     loginResult.textContent = "Login failed, please try again.";
+  }
+
+  //click button, logout
+  const btnLogout = document.getElementById("logout");
+  btnLogout.addEventListener("click", logout);
+
+  function logout() {
+    console.log("You are logout");
+    document.querySelector("header").style.height = "150px";
+    document.querySelector("section").style.display = "block";
+    document.querySelector("section").style.height = "300px";
   }
 }
 
