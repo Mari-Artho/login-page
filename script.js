@@ -54,6 +54,9 @@ function login() {
     //hide logout button.
     document.getElementById("logout").style.display = "none";
     loginResult.textContent = "You are logged out. Please login.";
+    //display flex column css.
+    document.querySelector("section").style.display = "flex";
+    document.querySelector("section").style.flexDirection = "column";
   }
 }
 
