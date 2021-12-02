@@ -5,12 +5,13 @@ const username = localStorage.getItem("loggedInUser");
 const btnClear = document.getElementById("btnClear");
 btnClear.addEventListener("click", clear);
 const btnSubmit = document.getElementById("btnSubmit");
+const buttons = document.getElementById("buttons");
+const message = document.getElementById("message");
 
 if (username != null) {
   setLoggedInScreen(username);
 } else {
   //click button, login
-  const message = document.getElementById("message");
 
   btnSubmit.addEventListener("click", login);
   //register handler "newUser" for "newUser" button
@@ -117,15 +118,17 @@ function addUser() {
     clear();
   }
 
-  /// change h2 text back to login
-  /// add "New User" button back
+  // add "New User" button back
   const newUserBtn = document.createElement("button");
   newUserBtn.innerText = "New User";
   newUserBtn.addEventListener("click", newUser);
-  btnSubmit.append(newUserBtn);
+  newUserBtn.id = "newUser";
+  buttons.append(newUserBtn);
 
-  /// change text "REGISTER" back to "LOGIN"
-  btnSubmit.innerHTML = "LOGIN";
+  // change text "REGISTER" back to "LOGIN"
+  message.innerText = "LOGIN";
+
+  btnSubmit.innerText = "LOGIN";
   // change button handler back to login
   btnSubmit.removeEventListener("click", addUser);
   btnSubmit.addEventListener("click", login);
