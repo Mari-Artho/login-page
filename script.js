@@ -20,6 +20,16 @@ function login() {
   ) {
     let upperName = username.toUpperCase();
     loginResult.textContent = `Welcome ${upperName}! You are logged in now! `;
+    const logoutBtn = document.createElement("button");
+    logoutBtn.innerText = "LOGOUT";
+    loginResult.append(logoutBtn);
+    document.getElementById("unLogin").style.display = "none";
+    document.getElementById("loginResult").style.display = "flex";
+    document.getElementById("loginResult").style.flexDirection = "column";
+    const removeSelector = document.querySelector("section");
+    removeSelector.remove();
+    document.querySelector("header").style.height = "450px";
+    document.querySelector("button").style.marginTop = "100px";
   } else {
     loginResult.textContent = "Login failed, please try again.";
   }
