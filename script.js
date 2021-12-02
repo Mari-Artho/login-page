@@ -7,6 +7,7 @@ btnClear.addEventListener("click", clear);
 const btnSubmit = document.getElementById("btnSubmit");
 const buttons = document.getElementById("buttons");
 const message = document.getElementById("message");
+const loginResult = document.getElementById("loginResult");
 
 if (username != null) {
   setLoggedInScreen(username);
@@ -88,8 +89,7 @@ function clear() {
 function newUser() {
   message.innerText = "Register New User";
   //change message
-  document.getElementById("unLogin").innerText =
-    "You are new user, please register!";
+  loginResult.innerText = "Please register!";
 
   // remove "New User" button
   const removeUser = document.getElementById("newUser");
@@ -101,6 +101,7 @@ function newUser() {
   // change btnSubmit handler to addUser
   btnSubmit.removeEventListener("click", login);
   btnSubmit.addEventListener("click", addUser);
+  clear();
 }
 
 //Register new user
