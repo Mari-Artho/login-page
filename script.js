@@ -30,10 +30,7 @@ function setLoggedInScreen(username) {
   document.getElementById("loginResult").style.display = "flex";
   document.getElementById("loginResult").style.flexDirection = "column";
   //hide section(login) area.
-  //const removeSelector = document.querySelector("section");
-  //removeSelector.remove();
   document.querySelector("section").style.display = "none";
-
   //decoration css
   document.querySelector("header").style.height = "450px";
   logoutBtn.style.marginTop = "70px";
@@ -57,7 +54,7 @@ function login() {
   } else {
     loginResult.textContent = "Login failed, please try again.";
     clear();
-    document.getElementById("loginResult").style.paddingBottom = "40px";
+    document.getElementById("unLogin").style.display = "none";
   }
 }
 
