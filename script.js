@@ -60,7 +60,6 @@ function login() {
   } else {
     loginResult.textContent = "Login failed, please try again.";
     clear();
-    document.getElementById("unLogin").style.display = "none";
   }
 }
 
