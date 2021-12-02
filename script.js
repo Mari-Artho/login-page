@@ -39,16 +39,17 @@ function login() {
     //decoration css
     document.querySelector("header").style.height = "450px";
     logoutBtn.style.marginTop = "70px";
+    //click button, logout
+    const btnLogout = document.getElementById("logout");
+    btnLogout.addEventListener("click", logout);
   } else {
     loginResult.textContent = "Login failed, please try again.";
+    document.getElementById("loginResult").style.paddingBottom = "40px";
   }
-
-  //click button, logout
-  const btnLogout = document.getElementById("logout");
-  btnLogout.addEventListener("click", logout);
+  q;
 
   function logout() {
-    document.querySelector("header").style.height = "150px";
+    document.querySelector("header").style.height = "200px";
     document.querySelector("section").style.display = "block";
     document.querySelector("section").style.height = "300px";
     //hide logout button.
@@ -70,12 +71,20 @@ btnClear.addEventListener("click", () => {
 
 // change "LOGIN" to "REGISTER NEW USER"
 function newUser() {
-  // change h2 text to "register..."
   message.innerText = "Register New User";
+  //change message
+  document.getElementById("unLogin").innerHTML =
+    "You are new user, please register!";
+
   // change btnSubmit handler to addUser
 
   // remove "New User" button
+  const removeUser = document.getElementById("newUser");
+  removeUser.remove();
+
   // change text "LOGIN" to "REGISTER"
+  document.getElementById("btnSubmit").innerHTML = "REGISTER";
+  btnSubmit.addEventListener("click", addUser);
 }
 
 //Register new user
@@ -85,9 +94,11 @@ function addUser() {
   localStorage.setItem(username, password);
   // display message
   // change h2 text back to login
+  // change loginResult to "You are now registered. Please log in."
 
   // change btnSubmit handler back to login
 
   // add "New User" button back
   // change text "REGISTER" back to "LOGIN"
+  btnSubmit.addEventListener("click", login);
 }
