@@ -20,14 +20,18 @@ function login() {
   ) {
     let upperName = username.toUpperCase();
     loginResult.textContent = `Welcome ${upperName}! You are logged in now! `;
+    //create logout button.
     const logoutBtn = document.createElement("button");
     logoutBtn.innerText = "LOGOUT";
     loginResult.append(logoutBtn);
+    //hide login message and display colmun
     document.getElementById("unLogin").style.display = "none";
     document.getElementById("loginResult").style.display = "flex";
     document.getElementById("loginResult").style.flexDirection = "column";
+    //hide section(login) area.
     const removeSelector = document.querySelector("section");
     removeSelector.remove();
+    //deco css
     document.querySelector("header").style.height = "450px";
     document.querySelector("button").style.marginTop = "100px";
   } else {
