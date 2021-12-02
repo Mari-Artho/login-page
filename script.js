@@ -8,6 +8,7 @@ const btnSubmit = document.getElementById("btnSubmit");
 const buttons = document.getElementById("buttons");
 const message = document.getElementById("message");
 const loginResult = document.getElementById("loginResult");
+const btnNewUser = document.getElementById("newUser");
 
 if (username != null) {
   setLoggedInScreen(username);
@@ -16,7 +17,6 @@ if (username != null) {
 
   btnSubmit.addEventListener("click", login);
   //register handler "newUser" for "newUser" button
-  const btnNewUser = document.getElementById("newUser");
   btnNewUser.addEventListener("click", newUser);
 }
 
@@ -33,7 +33,6 @@ function setLoggedInScreen(username) {
   logoutBtn.setAttribute("id", "logout");
 
   //hide login message and display colmun
-  document.getElementById("unLogin").style.display = "none";
   document.getElementById("loginResult").style.display = "flex";
   document.getElementById("loginResult").style.flexDirection = "column";
   //hide section(login) area.
@@ -91,9 +90,10 @@ function newUser() {
   //change message
   loginResult.innerText = "Please register!";
 
-  // remove "New User" button
-  const removeUser = document.getElementById("newUser");
-  removeUser.remove();
+  /// change "New User" button to "Back"
+  btnNewUser.innerText = "Back";
+  btnNewUser.removeEventListener("click", newUser);
+  btnNewUser.addEventListener("click", resetNewUserButton);
 
   // change text "LOGIN" to "REGISTER"
   btnSubmit.innerText = "REGISTER";
@@ -102,6 +102,21 @@ function newUser() {
   btnSubmit.removeEventListener("click", login);
   btnSubmit.addEventListener("click", addUser);
   clear();
+}
+
+function resetNewUserButton() {
+  // add "New User" button back
+  btnNewUser.innerText = "New User";
+  btnNewUser.removeEventListener("click", resetNewUserButton);
+  btnNewUser.addEventListener("click", newUser);
+
+  // change text "REGISTER" back to "LOGIN"
+  message.innerText = "LOGIN";
+
+  btnSubmit.innerText = "LOGIN";
+  // change button handler back to login
+  btnSubmit.removeEventListener("click", addUser);
+  btnSubmit.addEventListener("click", login);
 }
 
 //Register new user
@@ -118,19 +133,4 @@ function addUser() {
     loginResult.innerText = "You are now registered. Please log in.";
     clear();
   }
-
-  // add "New User" button back
-  const newUserBtn = document.createElement("button");
-  newUserBtn.innerText = "New User";
-  newUserBtn.addEventListener("click", newUser);
-  newUserBtn.id = "newUser";
-  buttons.append(newUserBtn);
-
-  // change text "REGISTER" back to "LOGIN"
-  message.innerText = "LOGIN";
-
-  btnSubmit.innerText = "LOGIN";
-  // change button handler back to login
-  btnSubmit.removeEventListener("click", addUser);
-  btnSubmit.addEventListener("click", login);
 }
