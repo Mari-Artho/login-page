@@ -44,6 +44,7 @@ function login() {
     btnLogout.addEventListener("click", logout);
   } else {
     loginResult.textContent = "Login failed, please try again.";
+    clear();
     document.getElementById("loginResult").style.paddingBottom = "40px";
   }
 
@@ -57,16 +58,19 @@ function login() {
     //display flex column css.
     document.querySelector("section").style.display = "flex";
     document.querySelector("section").style.flexDirection = "column";
+    clear();
   }
 }
 
 //clear button
 const btnClear = document.getElementById("btnClear");
-const inputs = document.querySelectorAll("input");
 
-btnClear.addEventListener("click", () => {
+btnClear.addEventListener("click", clear);
+function clear() {
+  const inputs = document.querySelectorAll("input");
+
   inputs.forEach((input) => (input.value = ""));
-});
+}
 
 // change "LOGIN" to "REGISTER NEW USER"
 function newUser() {
