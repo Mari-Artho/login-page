@@ -90,14 +90,18 @@ function newUser() {
 function addUser() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  localStorage.setItem(username, password);
-  // display message
-  // change h2 text back to login
-  // change loginResult to "You are now registered. Please log in."
+  if (localStorage.getItem(username) != null) {
+    loginResult.innerText = "Sorry, this user is already registered";
+    /// change loginResult to "Registration failed"
+  } else {
+    // user is new
+    localStorage.setItem(username, password);
+    loginResult.innerText = "You are now registered. Please log in.";
+  }
 
-  // change btnSubmit handler back to login
-
-  // add "New User" button back
-  // change text "REGISTER" back to "LOGIN"
+  /// change h2 text back to login
+  /// add "New User" button back
+  /// change text "REGISTER" back to "LOGIN"
+  // change button handler back to login
   btnSubmit.addEventListener("click", login);
 }
