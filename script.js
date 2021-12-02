@@ -10,14 +10,12 @@ const message = document.getElementById("message");
 const loginResult = document.getElementById("loginResult");
 const btnNewUser = document.getElementById("newUser");
 
+//register handler "newUser" for "newUser" button
+btnNewUser.addEventListener("click", newUser);
+btnSubmit.addEventListener("click", login);
+
 if (username != null) {
   setLoggedInScreen(username);
-} else {
-  //click button, login
-
-  btnSubmit.addEventListener("click", login);
-  //register handler "newUser" for "newUser" button
-  btnNewUser.addEventListener("click", newUser);
 }
 
 function setLoggedInScreen(username) {
