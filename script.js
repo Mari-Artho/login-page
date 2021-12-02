@@ -1,12 +1,17 @@
 // check existing session
 const username = localStorage.getItem("loggedInUser");
+
+//clear button
+const btnClear = document.getElementById("btnClear");
+btnClear.addEventListener("click", clear);
+const btnSubmit = document.getElementById("btnSubmit");
+
 if (username != null) {
   setLoggedInScreen(username);
 } else {
   //click button, login
   const message = document.getElementById("message");
 
-  const btnSubmit = document.getElementById("btnSubmit");
   btnSubmit.addEventListener("click", login);
   //register handler "newUser" for "newUser" button
   const btnNewUser = document.getElementById("newUser");
@@ -73,13 +78,8 @@ function logout() {
   localStorage.removeItem("loggedInUser");
 }
 
-//clear button
-const btnClear = document.getElementById("btnClear");
-
-btnClear.addEventListener("click", clear);
 function clear() {
   const inputs = document.querySelectorAll("input");
-
   inputs.forEach((input) => (input.value = ""));
 }
 
@@ -90,14 +90,15 @@ function newUser() {
   document.getElementById("unLogin").innerHTML =
     "You are new user, please register!";
 
-  // change btnSubmit handler to addUser
-
   // remove "New User" button
   const removeUser = document.getElementById("newUser");
   removeUser.remove();
 
   // change text "LOGIN" to "REGISTER"
-  document.getElementById("btnSubmit").innerHTML = "REGISTER";
+  btnSubmit.innerHTML = "REGISTER";
+
+  // change btnSubmit handler to addUser
+  btnSubmit.removeEventListener("click", login);
   btnSubmit.addEventListener("click", addUser);
 }
 
@@ -113,11 +114,19 @@ function addUser() {
     // user is new
     localStorage.setItem(username, password);
     loginResult.innerText = "You are now registered. Please log in.";
+    clear();
   }
 
   /// change h2 text back to login
   /// add "New User" button back
+  const newUserBtn = document.createElement("button");
+  newUserBtn.innerText = "New User";
+  newUserBtn.addEventListener("click", newUser);
+  btnSubmit.append(newUserBtn);
+
   /// change text "REGISTER" back to "LOGIN"
+  btnSubmit.innerHTML = "LOGIN";
   // change button handler back to login
+  btnSubmit.removeEventListener("click", addUser);
   btnSubmit.addEventListener("click", login);
 }
