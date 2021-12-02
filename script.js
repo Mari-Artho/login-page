@@ -46,7 +46,6 @@ function login() {
     loginResult.textContent = "Login failed, please try again.";
     document.getElementById("loginResult").style.paddingBottom = "40px";
   }
-  q;
 
   function logout() {
     document.querySelector("header").style.height = "200px";
