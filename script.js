@@ -88,7 +88,7 @@ function clear() {
 function newUser() {
   message.innerText = "Register New User";
   //change message
-  document.getElementById("unLogin").innerHTML =
+  document.getElementById("unLogin").innerText =
     "You are new user, please register!";
 
   // remove "New User" button
@@ -96,7 +96,7 @@ function newUser() {
   removeUser.remove();
 
   // change text "LOGIN" to "REGISTER"
-  btnSubmit.innerHTML = "REGISTER";
+  btnSubmit.innerText = "REGISTER";
 
   // change btnSubmit handler to addUser
   btnSubmit.removeEventListener("click", login);
