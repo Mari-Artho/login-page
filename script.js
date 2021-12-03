@@ -4,6 +4,7 @@ const username = localStorage.getItem("loggedInUser");
 //clear button
 const btnClear = document.getElementById("btnClear");
 btnClear.addEventListener("click", clear);
+
 const btnSubmit = document.getElementById("btnSubmit");
 const buttons = document.getElementById("buttons");
 const message = document.getElementById("message");
@@ -30,7 +31,7 @@ function setLoggedInScreen(username) {
   //add id name to logout btn.
   logoutBtn.setAttribute("id", "logout");
 
-  //hide login message and display colmun
+  //css, display colmun
   document.getElementById("loginResult").style.display = "flex";
   document.getElementById("loginResult").style.flexDirection = "column";
   //hide section(login) area.
@@ -124,10 +125,13 @@ function addUser() {
   if (localStorage.getItem(username) != null) {
     loginResult.innerText = "Sorry, this user is already registered";
     /// change loginResult to "Registration failed"
+    loginResult.innerText = "Registration failed";
   } else {
     // user is new
     localStorage.setItem(username, password);
     loginResult.innerText = "You are now registered. Please log in.";
     clear();
+    message.innerText = "LOGIN";
+    btnSubmit.innerText = "LOGIN";
   }
 }
