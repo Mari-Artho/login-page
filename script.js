@@ -68,7 +68,7 @@ function logout() {
   document.querySelector("section").style.height = "300px";
   //hide logout button.
   document.getElementById("logout").style.display = "none";
-  loginResult.textContent = "You are logged out. Please login.";
+  loginResult.textContent = "You are logged out. Please login❤️";
   //display flex column css.
   document.querySelector("section").style.display = "flex";
   document.querySelector("section").style.flexDirection = "column";
@@ -124,7 +124,7 @@ function addUser() {
   const password = document.getElementById("password").value;
 
   if (localStorage.getItem(username) != null) {
-    loginResult.innerText = "Sorry, this user is already registered";
+    loginResult.innerText = "Sorry, this user is already registered. Try again";
     btnSubmit.innerText = "REGISTER";
     /// change loginResult to "Registration failed"
     //loginResult.innerText = "Registration failed";
