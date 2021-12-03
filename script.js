@@ -23,7 +23,7 @@ function setLoggedInScreen(username) {
   // remember session
   localStorage.setItem("loggedInUser", username);
   let upperName = username.toUpperCase();
-  loginResult.textContent = `Welcome ${upperName}! You are logged in now! `;
+  loginResult.textContent = `Welcome ${upperName}❤️ You are logged in now! `;
   //create logout button.
   const logoutBtn = document.createElement("button");
   logoutBtn.innerText = "LOGOUT";
@@ -53,6 +53,7 @@ function login() {
 
   if (
     (username == "janne" && password == "test") ||
+    (username == "mari" && password == "123") ||
     (pwd != null && pwd == password)
   ) {
     setLoggedInScreen(username);
@@ -68,7 +69,7 @@ function logout() {
   document.querySelector("section").style.height = "300px";
   //hide logout button.
   document.getElementById("logout").style.display = "none";
-  loginResult.textContent = "You are logged out. Please login❤️";
+  loginResult.textContent = "You are logged out. Please login";
   //display flex column css.
   document.querySelector("section").style.display = "flex";
   document.querySelector("section").style.flexDirection = "column";
