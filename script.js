@@ -107,6 +107,7 @@ function resetNewUserButton() {
   btnNewUser.innerText = "New User";
   btnNewUser.removeEventListener("click", resetNewUserButton);
   btnNewUser.addEventListener("click", newUser);
+  loginResult.innerText = "Please Login";
 
   // change text "REGISTER" back to "LOGIN"
   message.innerText = "LOGIN";
@@ -124,8 +125,9 @@ function addUser() {
 
   if (localStorage.getItem(username) != null) {
     loginResult.innerText = "Sorry, this user is already registered";
+    btnSubmit.innerText = "REGISTER";
     /// change loginResult to "Registration failed"
-    loginResult.innerText = "Registration failed";
+    //loginResult.innerText = "Registration failed";
   } else {
     // user is new
     localStorage.setItem(username, password);
@@ -133,5 +135,6 @@ function addUser() {
     clear();
     message.innerText = "LOGIN";
     btnSubmit.innerText = "LOGIN";
+    btnSubmit.addEventListener("click", login);
   }
 }
