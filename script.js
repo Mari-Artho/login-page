@@ -23,7 +23,7 @@ function setLoggedInScreen(username) {
   // remember session
   localStorage.setItem("loggedInUser", username);
   let upperName = username.toUpperCase();
-  loginResult.textContent = `Welcome ${upperName}❤️ You are logged in now! `;
+  loginResult.textContent = `Welcome ${upperName} ❤️ You are logged in now! `;
   //create logout button.
   const logoutBtn = document.createElement("button");
   logoutBtn.innerText = "LOGOUT";
